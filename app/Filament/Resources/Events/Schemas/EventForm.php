@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Events\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
@@ -17,7 +17,7 @@ class EventForm
     {
         return $schema
             ->components([
-                Card::make()->schema([
+                Section::make()->schema([
                     TextInput::make('title')->required()->maxLength(191),
                     TextInput::make('slug')->required()->maxLength(191),
                     Textarea::make('description')->rows(4),

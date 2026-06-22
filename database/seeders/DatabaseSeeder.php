@@ -11,9 +11,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MenuCategorySeeder::class,
             MenuItemSeeder::class,
+            BlogCategorySeeder::class,
+            BlogPostSeeder::class,
             GallerySeeder::class,
             TestimonialSeeder::class,
-            BlogSeeder::class,
             EventSeeder::class,
             ReservationSeeder::class,
             OrderSeeder::class,

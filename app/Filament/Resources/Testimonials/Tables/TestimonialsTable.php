@@ -8,7 +8,6 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\Filter;
 
 class TestimonialsTable
@@ -21,7 +20,11 @@ class TestimonialsTable
                 TextColumn::make('customer_name')->searchable()->sortable(),
                 TextColumn::make('rating')->sortable(),
                 TextColumn::make('review')->limit(50),
-                BadgeColumn::make('is_active')->enum([1=>'Active',0=>'Inactive'])->colors(['success'=>1,'secondary'=>0]),
+                TextColumn::make('is_active')
+                    ->label('Active')
+                    ->badge()
+                    ->formatStateUsing(fn ($state) => $state ? 'Active' : 'Inactive')
+                    ->color(fn ($state) => $state ? 'success' : 'secondary'),
             ])
             ->filters([
                 Filter::make('active')->query(fn($q)=>$q->where('is_active',true))->label('Active only'),

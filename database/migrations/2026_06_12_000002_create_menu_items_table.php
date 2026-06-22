@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_category_id')->constrained('menu_categories')->cascadeOnDelete()->index();
+            $table->unsignedBigInteger('menu_category_id');
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
@@ -21,6 +21,12 @@ return new class extends Migration
             $table->boolean('is_available')->default(true)->index();
             $table->integer('sort_order')->default(0);
             $table->timestamps();
+
+            $table->index('menu_category_id');
+            $table->foreign('menu_category_id', 'fk_menu_items_menu_category_id')
+                ->references('id')
+                ->on('menu_categories')
+                ->onDelete('cascade');
         });
     }
 

@@ -9,7 +9,7 @@
                     @foreach($menuItems as $item)
                         @php $catName = $item->category->name ?? 'Uncategorized'; @endphp
                         <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover transition-smooth">
-                            <img src="{{ $item->image_url ?? asset('images/menu/placeholder.svg') }}" alt="{{ $item->name }}" class="w-full h-44 object-cover img-fade" loading="lazy" decoding="async">
+                            <img src="{{ $item->image_url ?? asset('images/menu/placeholder.svg') }}" alt="{{ $item->name }}" class="w-full h-44 object-cover" loading="lazy" decoding="async">
                             <div class="p-4">
                                 <div class="flex items-center justify-between">
                                     <h4 class="font-heading">{{ $item->name }}</h4>

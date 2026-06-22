@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\BlogPosts\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\RichEditor;
@@ -17,7 +17,7 @@ class BlogPostForm
     {
         return $schema
             ->components([
-                Card::make()->schema([
+                Section::make()->schema([
                     TextInput::make('title')->required()->maxLength(191),
                     TextInput::make('slug')->required()->maxLength(191),
                     Select::make('blog_category_id')->relationship('category','name')->preload()->searchable()->required(),

@@ -3,11 +3,11 @@
 namespace App\Filament\Resources\Orders\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Grid;
+use Filament\Schemas\Components\Grid;
 
 class OrderForm
 {
@@ -15,7 +15,7 @@ class OrderForm
     {
         return $schema
             ->components([
-                Card::make()->schema([
+                Section::make()->schema([
                     Grid::make()->schema([
                         TextInput::make('order_number')->disabled(),
                         TextInput::make('customer_name')->required()->maxLength(191),
@@ -30,7 +30,7 @@ class OrderForm
                     ])->columns(3),
                     Select::make('status')->options([
                         'pending' => 'Pending',
-                        'processing' => 'Processing',
+                        'preparing' => 'Preparing',
                         'completed' => 'Completed',
                         'cancelled' => 'Cancelled',
                     ])->required(),

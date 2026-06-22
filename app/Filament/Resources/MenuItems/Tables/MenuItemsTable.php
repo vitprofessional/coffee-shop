@@ -8,7 +8,6 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
 
@@ -22,7 +21,12 @@ class MenuItemsTable
                 TextColumn::make('name')->searchable()->sortable()->label('Name'),
                 TextColumn::make('category.name')->label('Category')->searchable()->sortable(),
                 TextColumn::make('price')->label('Price')->formatStateUsing(fn($state) => $state !== null ? number_format($state,2) : null)->sortable(),
-                BadgeColumn::make('is_available')->label('Available')->enum([1=>'Yes',0=>'No'])->colors(['success'=>1,'danger'=>0])->sortable(),
+                TextColumn::make('is_available')
+                    ->label('Available')
+                    ->badge()
+                    ->formatStateUsing(fn ($state) => $state ? 'Yes' : 'No')
+                    ->color(fn ($state) => $state ? 'success' : 'danger')
+                    ->sortable(),
                 TextColumn::make('created_at')->dateTime()->label('Created'),
             ])
             ->filters([

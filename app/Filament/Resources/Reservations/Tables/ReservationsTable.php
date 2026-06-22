@@ -9,7 +9,6 @@ use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 
 class ReservationsTable
@@ -22,7 +21,16 @@ class ReservationsTable
                 TextColumn::make('phone')->label('Phone'),
                 TextColumn::make('reservation_date')->date()->label('Date')->sortable(),
                 TextColumn::make('reservation_time')->dateTime()->label('Time'),
-                BadgeColumn::make('status')->enum(['pending'=>'Pending','confirmed'=>'Confirmed','cancelled'=>'Cancelled'])->colors(['warning'=>'pending','success'=>'confirmed','danger'=>'cancelled'])->sortable(),
+                TextColumn::make('status')
+                    ->badge()
+                    ->formatStateUsing(fn ($state) => ucfirst(str_replace('_', ' ', (string) $state)))
+                    ->color(fn ($state) => match ($state) {
+                        'pending' => 'warning',
+                        'confirmed' => 'success',
+                        'cancelled' => 'danger',
+                        default => 'gray',
+                    })
+                    ->sortable(),
                 TextColumn::make('created_at')->dateTime()->label('Created'),
             ])
             ->filters([

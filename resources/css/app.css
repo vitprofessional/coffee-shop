@@ -68,3 +68,23 @@ html{scroll-behavior:smooth}
 /* Success alert */
 .form-success{ width:100%; border-radius:12px; background-color:var(--brand-cream); border:1px solid rgba(200,169,107,0.18); color:var(--brand-brown); padding:12px 16px; }
 
+/* Final guard: ensure no page-load fades/reveals remain */
+.img-fade,
+[data-reveal],
+.reveal,
+.fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.starting\:opacity-0,
+.transition-opacity,
+.delay-300,
+.duration-750 {
+    opacity: 1 !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+}
+
+

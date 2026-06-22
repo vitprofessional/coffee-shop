@@ -8,7 +8,6 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Filters\SelectFilter;
 
 class BlogPostsTable
@@ -20,7 +19,12 @@ class BlogPostsTable
                 ImageColumn::make('image')->rounded()->size(64),
                 TextColumn::make('title')->searchable()->sortable(),
                 TextColumn::make('category.name')->label('Category')->sortable(),
-                BadgeColumn::make('is_published')->enum([1=>'Published',0=>'Draft'])->colors(['success'=>1,'secondary'=>0])->sortable(),
+                TextColumn::make('is_published')
+                    ->label('Published')
+                    ->badge()
+                    ->formatStateUsing(fn ($state) => $state ? 'Published' : 'Draft')
+                    ->color(fn ($state) => $state ? 'success' : 'secondary')
+                    ->sortable(),
                 TextColumn::make('published_at')->dateTime()->label('Published At'),
             ])
             ->filters([

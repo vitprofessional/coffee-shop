@@ -10,8 +10,15 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
+use App\Filament\Widgets\ExecutiveStatsWidget;
+use App\Filament\Widgets\RevenueChartWidget;
+use App\Filament\Widgets\OrdersChartWidget;
+use App\Filament\Widgets\ReservationsChartWidget;
+use App\Filament\Widgets\RecentOrdersTableWidget;
+use App\Filament\Widgets\RecentReservationsTableWidget;
+use App\Filament\Widgets\RecentMessagesTableWidget;
+use App\Filament\Widgets\BusinessSnapshotWidget;
+use App\Filament\Widgets\QuickActionsWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -36,10 +43,25 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                // Executive overview (6 stats)
+                ExecutiveStatsWidget::class,
+
+                // Analytics charts
+                RevenueChartWidget::class,
+                OrdersChartWidget::class,
+
+                // Reservations chart + snapshot
+                ReservationsChartWidget::class,
+                BusinessSnapshotWidget::class,
+
+                // Quick actions
+                QuickActionsWidget::class,
+
+                // Recent activity tables
+                RecentOrdersTableWidget::class,
+                RecentReservationsTableWidget::class,
+                RecentMessagesTableWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

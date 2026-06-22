@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\MenuItems\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
@@ -17,7 +17,7 @@ class MenuItemForm
     {
         return $schema
             ->components([
-                Card::make()->schema([
+                Section::make()->schema([
                     Grid::make()->schema([
                         TextInput::make('name')->required()->maxLength(191)->columnSpan('full'),
                         TextInput::make('slug')->required()->maxLength(191),

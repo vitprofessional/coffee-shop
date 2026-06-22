@@ -14,7 +14,7 @@
                         @foreach($gallery as $img)
                             <figure class="break-inside">
                                 <a href="{{ $img->url ?? '#' }}" @click.prevent="open({{ $loop->index }})" rel="noopener">
-                                    <img src="{{ $img->url ?? asset('images/gallery/placeholder.svg') }}" alt="{{ $img->title ?? 'Gallery image' }}" class="w-full rounded-lg object-cover img-fade" loading="lazy" decoding="async">
+                                    <img src="{{ $img->url ?? asset('images/gallery/placeholder.svg') }}" alt="{{ $img->title ?? 'Gallery image' }}" class="w-full rounded-lg object-cover" loading="lazy" decoding="async">
                                 </a>
                             </figure>
                         @endforeach

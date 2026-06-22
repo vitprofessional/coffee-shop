@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\MenuCategories\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -14,7 +14,7 @@ class MenuCategoryForm
     {
         return $schema
             ->components([
-                Card::make()
+                Section::make()
                     ->schema([
                         TextInput::make('name')
                             ->required()

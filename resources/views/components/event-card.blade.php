@@ -1,7 +1,7 @@
 @props(['title'=>null,'date'=>null,'time'=>null,'location'=>null,'image'=>null,'url'=>null])
 <article class="rounded-lg overflow-hidden shadow-sm bg-white card-hover transition-smooth">
     <div class="relative">
-        <img src="{{ $image ?? '/images/events-placeholder.jpg' }}" alt="{{ $title }}" class="w-full h-48 object-cover img-fade" loading="lazy" decoding="async">
+        <img src="{{ $image ?? '/images/events-placeholder.jpg' }}" alt="{{ $title }}" class="w-full h-48 object-cover" loading="lazy" decoding="async">
         <div class="absolute top-3 left-3 bg-[var(--brand-gold)] text-[var(--brand-espresso)] px-3 py-1 rounded text-xs font-semibold">{{ $date }}</div>
     </div>
     <div class="p-4">

@@ -129,10 +129,15 @@
 
                   <div class="mt-4 flex items-center justify-between">
                     <div class="text-lg font-bold text-[var(--brand-brown)]">{{ $price }}</div>
-                    <div class="flex items-center gap-3">
-                      <button aria-label="Add {{ $item->name }} to cart" class="px-4 py-2 bg-[var(--brand-brown)] text-[var(--brand-cream)] rounded-lg font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-[var(--brand-brown)]">Add To Cart</button>
-                      <a href="#" class="text-sm text-gray-600 hover:underline" aria-label="View details for {{ $item->name }}">View Details</a>
-                    </div>
+                      <div class="flex items-center gap-3">
+                        <form method="POST" action="{{ route('cart.add') }}" class="inline-block">
+                          @csrf
+                          <input type="hidden" name="menu_item_id" value="{{ $item->id }}">
+                          <input type="hidden" name="quantity" value="1">
+                          <button type="submit" aria-label="Add {{ $item->name }} to cart" class="px-4 py-2 bg-[var(--brand-brown)] text-[var(--brand-cream)] rounded-lg font-medium shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-[var(--brand-brown)]">Add To Cart</button>
+                        </form>
+                        <a href="#" class="text-sm text-gray-600 hover:underline" aria-label="View details for {{ $item->name }}">View Details</a>
+                      </div>
                   </div>
                 </div>
               </article>

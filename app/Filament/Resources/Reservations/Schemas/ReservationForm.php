@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Reservations\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
@@ -17,7 +17,7 @@ class ReservationForm
     {
         return $schema
             ->components([
-                Card::make()->schema([
+                Section::make()->schema([
                     Grid::make()->schema([
                         TextInput::make('name')->required()->maxLength(191),
                         TextInput::make('phone')->required()->maxLength(20),

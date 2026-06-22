@@ -9,16 +9,21 @@ class MenuCategorySeeder extends Seeder
 {
     public function run(): void
     {
-        $categories = [
-            ['name'=>'Espresso','slug'=>'espresso'],
-            ['name'=>'Signature Drinks','slug'=>'signature-drinks'],
-            ['name'=>'Cold Brew','slug'=>'cold-brew'],
-            ['name'=>'Pastries','slug'=>'pastries'],
-            ['name'=>'Add-ons','slug'=>'add-ons'],
+        $names = [
+            'Signature Coffee',
+            'Single Origin',
+            'Espresso',
+            'Cold Brew',
+            'Pastries',
+            'Seasonal Specials',
         ];
 
-        foreach ($categories as $c) {
-            MenuCategory::updateOrCreate(['slug'=>$c['slug']], array_merge($c, ['description'=>null, 'image'=>'seed-images/menu-category.jpg']));
+        foreach ($names as $name) {
+            MenuCategory::updateOrCreate(
+                ['slug' => \Illuminate\Support\Str::slug($name)],
+                ['name' => $name, 'slug' => \Illuminate\Support\Str::slug($name), 'is_active' => true]
+            );
         }
     }
 }
+

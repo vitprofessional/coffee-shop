@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Filament\Widgets;
+
+use Filament\Widgets\Widget;
+use App\Models\MenuItem;
+use App\Models\Event;
+use App\Models\BlogPost;
+use App\Models\OrderItem;
+
+class BusinessSnapshotWidget extends Widget
+{
+    protected string $view = 'filament.widgets.business-snapshot-widget';
+
+    public $topSelling = null;
+    public $featuredCount = 0;
+    public $upcomingEvents = 0;
+    public $publishedArticles = 0;
+
+    public function mount(): void
+    {
+        $this->topSelling = OrderItem::selectRaw('menu_item_id, item_name, SUM(quantity) as qty')
+            ->groupBy('menu_item_id','item_name')
+            ->orderByDesc('qty')
+            ->limit(1)
+            ->first();
+
+        $this->featuredCount = MenuItem::where('is_featured', true)->count();
+        $this->upcomingEvents = Event::whereDate('event_date', '>=', now())->count();
+        $this->publishedArticles = BlogPost::where('is_published', true)->count();
+    }
+}
