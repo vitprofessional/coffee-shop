@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Event placeholder">
+  <rect width="100%" height="100%" fill="#F7F4F0" />
+  <rect x="32" y="32" width="736" height="300" fill="#E9E0D8" rx="8" />
+  <text x="50%" y="80%" fill="#4B2E2B" font-family="Inter, sans-serif" font-size="16" text-anchor="middle">Event image</text>
+</svg>

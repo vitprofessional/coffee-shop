@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" width="1400" height="700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#efe7df"/>
+      <stop offset="100%" stop-color="#f7f1ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <!-- subtle coffee bean pattern -->
+  <g opacity="0.07" fill="#2e1f1e">
+    <ellipse cx="220" cy="200" rx="90" ry="50" transform="rotate(-20 220 200)"/>
+    <ellipse cx="400" cy="120" rx="60" ry="35" transform="rotate(10 400 120)"/>
+    <ellipse cx="1100" cy="260" rx="100" ry="55" transform="rotate(-10 1100 260)"/>
+  </g>
+  <!-- roaster silhouette -->
+  <g transform="translate(80,160)" opacity="0.18" fill="#2e1f1e">
+    <rect x="0" y="60" width="220" height="120" rx="20"/>
+    <circle cx="170" cy="40" r="30"/>
+    <rect x="60" y="30" width="60" height="20" rx="8"/>
+  </g>
+  <!-- cup & steam -->
+  <g transform="translate(820,220)" fill="#4B2E2B">
+    <path d="M20 120 q30 20 80 0 v-20 h20 a30 30 0 0 0 0 -60 h-160 a30 30 0 0 0 0 60 h20 v20 q40 20 80 0 z"/>
+    <path d="M70 20 q10 -12 20 0" stroke="#fff" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M85 6 q8 -10 18 0" stroke="#fff" stroke-width="2" fill="none" opacity="0.2"/>
+  </g>
+  <!-- accent bean -->
+  <g transform="translate(540,360)" fill="#3b2a28" opacity="0.14">
+    <ellipse cx="0" cy="0" rx="80" ry="44" transform="rotate(-18)"/>
+    <ellipse cx="-10" cy="-6" rx="6" ry="12" fill="#f7efe9"/>
+  </g>
+</svg>

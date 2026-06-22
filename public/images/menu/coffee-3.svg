@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="100%" height="100%" fill="#f6f2ec" rx="12"/>
+  <g transform="translate(30,30)" fill="#4B2E2B">
+    <g transform="translate(20,10)">
+      <rect x="0" y="40" width="120" height="70" rx="18" fill="#4B2E2B"/>
+      <path d="M20 70 C40 60, 80 60, 100 70" fill="#f6f2ec"/>
+      <circle cx="90" cy="55" r="12" fill="#f6f2ec"/>
+    </g>
+    <text x="160" y="70" font-family="Georgia, serif" font-size="20" fill="#4B2E2B">Organic Espresso Roast</text>
+    <text x="160" y="100" font-family="Inter, sans-serif" font-size="16" fill="#7a6a63">Intense, syrupy, caramel notes</text>
+  </g>
+  <text x="320" y="270" font-family="Inter, sans-serif" font-size="18" fill="#4B2E2B" text-anchor="end">$19.90</text>
+</svg>

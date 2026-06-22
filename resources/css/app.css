@@ -1,0 +1,70 @@
+/* Premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root{
+    --brand-brown: #4B2E2B;
+    --brand-cream: #F5F1EA;
+    --brand-espresso: #1B1B1B;
+    --brand-gold: #C8A96B;
+}
+
+html{scroll-behavior:smooth}
+
+/* Font utility classes */
+.font-heading{font-family:'Playfair Display', serif;}
+.font-body{font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';}
+
+/* Focus & accessibility */
+.focus-ring:focus{outline:2px solid var(--brand-gold);outline-offset:2px}
+
+/* Subtle transitions */
+.transition-smooth{transition:all .22s cubic-bezier(.22,.9,.22,1)}
+.card-hover:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(11,15,20,0.08)}
+
+/* Image reveal */
+.img-fade{opacity:1;transform:none;transition:none}
+.img-fade.loaded{opacity:1;transform:none}
+
+/* Disable page-load reveal / delayed animations for instant UX */
+/* Neutralize initial 'starting:' utilities and global opacity transitions */
+.starting\:opacity-0{opacity:1 !important}
+.starting\:translate-y-4,.starting\:translate-y-6{transform:none !important}
+.transition-opacity{transition-property:none !important}
+.delay-300{transition-delay:0s !important}
+.duration-750{transition-duration:0s !important}
+
+/* Keep hover/card/button transitions (these use other utility classes like transform/transition) */
+
+/* Alpine x-cloak to prevent flash of cloaked elements */
+[x-cloak]{display:none !important}
+
+/* Reusable form utilities */
+.form-card{ @apply bg-white rounded-2xl shadow p-6; }
+.form-grid{ @apply grid grid-cols-1 gap-4; }
+.form-grid.cols-2{ @apply md:grid-cols-2; }
+.form-group{ @apply block; }
+.form-label{ @apply text-sm font-medium text-gray-700; }
+.form-required{ @apply text-amber-600 ml-1; }
+.form-input{ @apply mt-1 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300; }
+.form-select{ @apply mt-1 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300; }
+.form-textarea{ @apply mt-1 block w-full rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300; }
+.form-error{ @apply text-sm text-red-600 mt-1; }
+.form-help{ @apply text-sm text-gray-500; }
+.form-submit{ @apply inline-flex items-center justify-center rounded-lg bg-amber-700 hover:bg-amber-600 text-white font-medium py-3 px-6 shadow-md focus:outline-none focus:ring-4 focus:ring-amber-200; }
+
+/* Success alert */
+.form-success{ width:100%; border-radius:12px; background-color:var(--brand-cream); border:1px solid rgba(200,169,107,0.18); color:var(--brand-brown); padding:12px 16px; }
+

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="Blog placeholder">
+  <rect width="100%" height="100%" fill="#FFF8F2" />
+  <rect x="40" y="40" width="820" height="300" fill="#EDE0D8" rx="6" />
+  <text x="50%" y="80%" fill="#4B2E2B" font-family="Inter, sans-serif" font-size="16" text-anchor="middle">Blog image</text>
+</svg>

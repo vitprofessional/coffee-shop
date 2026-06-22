@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f5efe6"/>
+      <stop offset="100%" stop-color="#f0e8df"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g1)" rx="12"/>
+  <g transform="translate(40,40)" fill="#4B2E2B">
+    <ellipse cx="60" cy="60" rx="50" ry="30" fill="#3b2a28" opacity="0.12"/>
+    <g transform="translate(0,0)">
+      <circle cx="60" cy="40" r="10" fill="#4B2E2B"/>
+      <circle cx="80" cy="50" r="8" fill="#4B2E2B"/>
+      <circle cx="40" cy="50" r="6" fill="#4B2E2B"/>
+    </g>
+    <text x="140" y="60" font-family="Georgia, serif" font-size="20" fill="#4B2E2B">Ethiopian Single Origin</text>
+    <text x="140" y="90" font-family="Inter, sans-serif" font-size="16" fill="#7a6a63">Floral, tea-like brightness</text>
+  </g>
+  <text x="320" y="270" font-family="Inter, sans-serif" font-size="18" fill="#4B2E2B" text-anchor="end">$18.90</text>
+</svg>
