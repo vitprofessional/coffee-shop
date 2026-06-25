@@ -6,19 +6,18 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages\Dashboard;
+use App\Filament\Pages\Dashboard as AppDashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use App\Filament\Widgets\ExecutiveStatsWidget;
+use App\Filament\Widgets\DashboardStatsWidget;
 use App\Filament\Widgets\RevenueChartWidget;
-use App\Filament\Widgets\OrdersChartWidget;
-use App\Filament\Widgets\ReservationsChartWidget;
-use App\Filament\Widgets\RecentOrdersTableWidget;
-use App\Filament\Widgets\RecentReservationsTableWidget;
-use App\Filament\Widgets\RecentMessagesTableWidget;
-use App\Filament\Widgets\BusinessSnapshotWidget;
-use App\Filament\Widgets\QuickActionsWidget;
+use App\Filament\Widgets\OrderStatusChartWidget;
+use App\Filament\Widgets\ReservationStatusChartWidget;
+use App\Filament\Widgets\RecentOrdersWidget;
+use App\Filament\Widgets\RecentReservationsWidget;
+use App\Filament\Widgets\RecentMessagesWidget;
+use App\Filament\Widgets\DashboardActionsWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -41,27 +40,10 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
-                Dashboard::class,
+                AppDashboard::class,
             ])
             ->widgets([
-                // Executive overview (6 stats)
-                ExecutiveStatsWidget::class,
-
-                // Analytics charts
-                RevenueChartWidget::class,
-                OrdersChartWidget::class,
-
-                // Reservations chart + snapshot
-                ReservationsChartWidget::class,
-                BusinessSnapshotWidget::class,
-
-                // Quick actions
-                QuickActionsWidget::class,
-
-                // Recent activity tables
-                RecentOrdersTableWidget::class,
-                RecentReservationsTableWidget::class,
-                RecentMessagesTableWidget::class,
+                // Keep provider widgets minimal; dashboard widgets defined in Dashboard page.
             ])
             ->middleware([
                 EncryptCookies::class,

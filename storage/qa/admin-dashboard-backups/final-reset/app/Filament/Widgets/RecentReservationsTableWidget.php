@@ -6,7 +6,7 @@ use Filament\Widgets\TableWidget;
 use Filament\Tables\Columns\TextColumn;
 use App\Models\Reservation;
 
-class RecentReservationsWidget extends TableWidget
+class RecentReservationsTableWidget extends TableWidget
 {
     protected static ?string $heading = 'Recent Reservations';
     protected int|string|array $columnSpan = 1;
@@ -20,6 +20,7 @@ class RecentReservationsWidget extends TableWidget
                 TextColumn::make('guests')->label('Guests'),
                 TextColumn::make('reservation_date')->date(),
                 TextColumn::make('created_at')->since(),
-            ]);
+            ])
+            ;
     }
 }

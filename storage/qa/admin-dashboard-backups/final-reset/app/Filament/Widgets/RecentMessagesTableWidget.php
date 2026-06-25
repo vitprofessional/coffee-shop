@@ -4,22 +4,22 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\TableWidget;
 use Filament\Tables\Columns\TextColumn;
-use App\Models\Reservation;
+use App\Models\ContactMessage;
 
-class RecentReservationsWidget extends TableWidget
+class RecentMessagesTableWidget extends TableWidget
 {
-    protected static ?string $heading = 'Recent Reservations';
+    protected static ?string $heading = 'Recent Messages';
     protected int|string|array $columnSpan = 1;
 
     public function table(\Filament\Tables\Table $table): \Filament\Tables\Table
     {
         return $table
-            ->query(Reservation::query()->latest()->limit(8))
+            ->query(ContactMessage::query()->latest()->limit(8))
             ->columns([
                 TextColumn::make('name'),
-                TextColumn::make('guests')->label('Guests'),
-                TextColumn::make('reservation_date')->date(),
+                TextColumn::make('subject')->limit(50),
                 TextColumn::make('created_at')->since(),
-            ]);
+            ])
+            ;
     }
 }

@@ -4,10 +4,10 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\TableWidget;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use App\Models\Order;
+use Filament\Tables\Columns\BadgeColumn;
 
-class RecentOrdersWidget extends TableWidget
+class RecentOrdersTableWidget extends TableWidget
 {
     protected static ?string $heading = 'Recent Orders';
     protected int|string|array $columnSpan = 'full';
@@ -22,6 +22,7 @@ class RecentOrdersWidget extends TableWidget
                 TextColumn::make('total')->money('USD'),
                 TextColumn::make('created_at')->label('When')->since(),
                 BadgeColumn::make('status'),
-            ]);
+            ])
+            ;
     }
 }
